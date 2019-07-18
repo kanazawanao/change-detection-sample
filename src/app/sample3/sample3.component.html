@@ -1,0 +1,8 @@
+<h3>
+  Change detection is triggered at:
+  <span [textContent]="time | date:'hh:mm:ss:SSS'"></span>
+</h3>
+<button (click)="0">Trigger Change Detection</button>
+
+<p>NgZone外で実行することで、変更検知対象外とすることができる</p>
+<p>NgZone内での変更検知をきっかけに、値が更新される</p>
