@@ -1,0 +1,9 @@
+<h3>
+  Change detection is triggered at:
+  <span [textContent]="time | date:'hh:mm:ss:SSS'"></span>
+</h3>
+<button (click)="0">Trigger Change Detection</button>
+<p>同期的に実行するのがいけないので、setIntarvalを利用して非同期実行するように変更する</p>
+<p>コンソール確認するとエラーは発生しなくなった</p>
+<p>が、残念なことに、setIntarvalもchangeDetectionのトリガーとなっている</p>
+<p>そのため、ChangeDetectionが無限に発生する</p>
