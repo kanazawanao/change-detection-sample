@@ -2,5 +2,12 @@
   Change detection is triggered at:
   <span [textContent]="time | date:'hh:mm:ss:SSS'"></span>
 </h3>
-<p>ボタンが押されないと、ChangeDetectionは実行されない</p>
 <button (click)="0">Trigger Change Detection</button>
+
+<p>ボタンが押されると、ChangeDetectionが実行される</p>
+<p>コンソール確認するとExpressionChangedAfterItHasBeenCheckedErrorが発生している</p>
+<p>原因は画面初期化段階で、表示している現在時刻を2回評価して、それがミリ秒単位で変わってしまっているため</p>
+<p>Angularでは、変更検出サイクルの後に別のチェックを同期的に走らせて値の比較を行っている</p>
+<p>現在時刻は常に変化するため、そのタイミングでエラーが発生する</p>
+<p>DOMには反映しない</p>
+<p>DOMへの反映を行おうとすると、変更検出実行の無限ループに陥ってしまう</p>
